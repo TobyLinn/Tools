@@ -363,7 +363,7 @@ function main(config) {
         "Emby": {
             ...ruleProviderCommon,
             "behavior": "classical",
-            "url": "https://raw.githubusercontent.com/TobyLinn/Tools/main/clash/roles/emby.list",
+            "url": "https://raw.githubusercontent.com/TobyLinn/Tools/main/Clash/Roles/Emby.list",
             "path": "./rule-providers/Emby.list"
         },
         "Spotify": {
