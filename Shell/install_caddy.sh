@@ -40,6 +40,20 @@ reload_caddy() {
     echo -e "${GREEN}Caddy 已重启${plain}"
 }
 
+update_config() {
+    # 写入配置文件内容
+    cat <<EOF >> /etc/caddy/Caddyfile
+
+你的域名 {
+    reverse_proxy 你要反代的域名 {
+        header_up Host {upstream_hostport}
+        header_up Accept-Encoding identity
+    }
+    tls 填写你的邮箱 用于申请ssl证书
+}
+EOF
+#    echo -e "${GREEN}配置文件已更新${plain}"
+}
 # 定义颜色
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
@@ -66,6 +80,7 @@ main() {
             install_caddy
             ;;
         2)
+            update_config
             edit_config
             # shellcheck disable=SC2162
             read -p "是否要重启 Caddy (Y/N): " tag
