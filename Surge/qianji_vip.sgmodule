@@ -1,0 +1,9 @@
+#!name=钱迹解锁终身会员
+#!desc=钱迹解锁终身会员
+#!version=1.0
+
+[Script]
+qianji_vip = type=http-response,pattern=^https:\/\/api\.qianjiapp\.com\/vip\/configios,requires-body=1,max-size=0,script-path=https://path/to/surge_script.js
+
+[MITM]
+hostname = %APPEND% api.qianjiapp.com
